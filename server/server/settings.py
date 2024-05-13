@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wq#n*rq2t!%q7i%!st7j12cq)3s-ip1z+^ul9^icg8a&))o%)y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672/'
+CELERY_BROKER_URL = 'amqp://guest:guest@rabbit:5672/'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
