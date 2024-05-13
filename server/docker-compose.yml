@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    command: ["bash", "-c", "python manage.py makemigrations; python manage.py migrate; python manage.py runserver 0.0.0.0:8000"]
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbit
+  worker:
+    build: .
+    command: ["bash", "-c", "celery -A server worker --loglevel=info -c 4"]
+    volumes:
+      - .:/code
+    depends_on:
+      - rabbit
+  rabbit:
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 'SWQOKODSQALRPCLNMEQG'
+      RABBITMQ_DEFAULT_USER: 'guest'
+      RABBITMQ_DEFAULT_PASS: 'guest'
