@@ -1,8 +1,4 @@
-# Use an official Python runtime as a parent image
 FROM python:3.11
-
-# Install netcat-openbsd
-RUN apt-get update && apt-get install -y netcat-openbsd
 
 # Set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
