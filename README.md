@@ -1,5 +1,9 @@
 # narrative-assignment
 
+
+[Problem Statement](./problem_statement.pdf)
+
+
 [Video](./video.mkv)
 
 
